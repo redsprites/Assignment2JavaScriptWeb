@@ -116,7 +116,10 @@
             <p style = "font-size: 20px; color: #888; margin-bottom: 50px; text-align: center; font-family: Arial, sans-serif">Sorry, the page you're looking for doesn't exist.</p>`;
         }
         viewDog(data[dogIndex])
-      });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      })
 
     // based on pet index display information of dog and show pictures
     function viewDog(data) {
