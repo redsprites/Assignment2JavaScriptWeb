@@ -47,7 +47,7 @@
   </header>
 
   <main>
-    <div class="album py-5 bg-light">
+    <div class="album py-5" id="album">
       <div class="container">
         <h1 id='pet-name'>Pet name</h1>
         <div id="pet-info">Pet info goes here</div>
@@ -116,6 +116,9 @@
             <p style = "font-size: 20px; color: #888; margin-bottom: 50px; text-align: center; font-family: Arial, sans-serif">Sorry, the page you're looking for doesn't exist.</p>`;
         }
         viewDog(data[dogIndex])
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
       });
 
     // based on pet index display information of dog and show pictures
@@ -135,6 +138,12 @@
       document.getElementById("pic1").innerHTML = `<img src='${data.pic1}' height='225' alt:'Pic1 of ${data.name}'>`;
       document.getElementById("pic2").innerHTML = `<img src='${data.pic2}' height='225' alt:'Pic2 of ${data.name}'>`;
       document.getElementById("pic3").innerHTML = `<img src='${data.pic3}' height='225' alt:'Pic3 of ${data.name}'>`;
+      document.getElementById("album").style.backgroundColor = data.gender == 'Male' ? 'white': 'grey';
+      document.getElementById("album").style.color = data.gender == 'Male' ? 'black': 'white';
+      document.head.childNodes[11].innerText = 'Pet ' + (dogIndex+1) + ': ' + data.name;
+      for (let i = 0; i < document.head.childNodes.length; i++) {
+        console.log(document.head.childNodes[i]);
+      }
       };
 
     // create back button to go back to index page
