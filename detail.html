@@ -1,156 +1,107 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Album example · Bootstrap v5.0</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.84.0">
-  <title>Album example · Bootstrap v5.0</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+    
 
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-  <!-- Bootstrap core CSS -->
-  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
       }
-    }
-  </style>
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
 
-</head>
-
-<body>
-
-  <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container">
+    
+  </head>
+  <body>
+    
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
         <strong>Pet adoption website</strong>
-        </a>
-      </div>
+      </a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <div class="album py-5" id="album">
-      <div class="container">
-        <h1 id='pet-name'>Pet name</h1>
-        <div id="pet-info">Pet info goes here</div>
-        <hr />
-        <h2>Image Gallery</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
-            <div class="card shadow-sm" id="pic1">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-            </div>
+<main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+	<h1>Pet name</h1>
+	<div>Pet info goes here</div>
+	<hr />
+	<h2>Image Gallery</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
           </div>
-          <div class="col">
-            <div class="card shadow-sm" id="pic2">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-            </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
           </div>
-          <div class="col">
-            <div class="card shadow-sm" id="pic3">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-            </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  </main>
+</main>
 
-  <footer class="text-muted py-5">
-    <div class="container" id="footer">
-      <p class="float-end mb-1">
-        <a href="#">Back to top</a>
-      </p>
-    </div>
-  </footer>
-
-
-  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script src="assets/js/getAllURLParams.js"></script>
-  <script>
-    let dogIndex = getAllUrlParams().pet == null ? 0: getAllUrlParams().pet - 1;
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+  </div>
+</footer>
 
 
-    // read data from JSON file
-    fetch('assets/data/data.json')
-      .then((response) => response.json())
-      .then((data) => {
-        if (dogIndex >= data.length || dogIndex < 0) {
-          document.body.innerHTML = `
-            <h1 style="color: #555; font-size: 50px; margin-top: 50px; text-align: center; font-family: Arial, sans-serif">Error 404: Page not found</h1>
-            <p style = "font-size: 20px; color: #888; margin-bottom: 50px; text-align: center; font-family: Arial, sans-serif">Sorry, the page you're looking for doesn't exist.</p>`;
-        }
-        viewDog(data[dogIndex])
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-
-    // based on pet index display information of dog and show pictures
-    function viewDog(data) {
-      document.getElementById("pet-name").innerHTML = data.name == null ? "N/A" : data.name;
-      document.getElementById("pet-info").innerHTML = `
-          ${data.breed == null ? "" : data.breed + "</br>"} 
-          ${data.spayNeuter == null ? "" : data.spayNeuter + "</br>"}
-          ${data.gender == null ? "" : data.gender + "<br>"}
-          ${data.age == null ? "" : "<em>Age</em>: " + data.age + "</br>"}
-          ${data.animalId == null ? "" : "<em>Animal Id</em>: " + data.animalId + "</br>"}
-          ${data.vaccinationStatus == null ? "" : "<em>Vaccination Status</em>: " + data.vaccinationStatus + "</br>"}
-          ${data.location == null ? "" : "<em>Location</em>: " + data.location + "</br>"}
-          ${data.availableForAdoption == null ? "" : "<em>Available for abortion</em>:" + data.availableForAdoption + "</br>"}
-          ${data.type == null ? "" : "<em>Type</em>: " + data.type + "<br>"}
-          ${data.additionalDetails == null ? "" : "<em>Additional Details</em>: " + data.additionalDetails}`
-      document.getElementById("pic1").innerHTML = `<img src='${data.pic1}' height='225' alt:'Pic1 of ${data.name}'>`;
-      document.getElementById("pic2").innerHTML = `<img src='${data.pic2}' height='225' alt:'Pic2 of ${data.name}'>`;
-      document.getElementById("pic3").innerHTML = `<img src='${data.pic3}' height='225' alt:'Pic3 of ${data.name}'>`;
-      document.getElementById("album").style.backgroundColor = data.gender == 'Male' ? 'white': 'grey';
-      document.getElementById("album").style.color = data.gender == 'Male' ? 'black': 'white';
-      document.head.childNodes[11].innerText = 'Pet ' + (dogIndex+1) + ': ' + data.name;
-      for (let i = 0; i < document.head.childNodes.length; i++) {
-        console.log(document.head.childNodes[i]);
-      }
-      };
-
-    // create back button to go back to index page
-    document.getElementById("footer").innerHTML = `<a href="index.html?page=${Math.ceil(dogIndex/6)}" role="button" class="btn btn-outline-dark">Back</a>`;
-
-  </script>
-
-</body>
-
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+	
+    <script src="assets/js/getAllURLParams.js"></script>
+	<script>
+	for(let i=0;i<json_file.pets.length;i++){
+		document.body.innerHTML+='<h1>'+'</h1>';
+		console.log(json_file.pets[i].age);
+		petlist.innerHTML+=`
+	
+		<div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          </div>
+	
+	
+	
+	
+	console.log(json_file);
+	console.log(getAllUrlParams().pet);
+	</script>
+      
+  </body>
 </html>
