@@ -1,111 +1,124 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Album example · Bootstrap v5.0</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Album example · Bootstrap v5.0</title>
 
-    
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
-    <!-- Bootstrap core CSS -->
-<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
 
-    
-  </head>
-  <body>
-    
-<header>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <strong>Pet adoption website</strong>
-      </a>
-    </div>
-  </div>
-</header>
+</head>
 
-<main>
-  <div class="album py-5 bg-light">
-    <div class="container">
+<body>
 
-      <div id="petlist" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>Pet adoption website</strong>
+        </a>
       </div>
     </div>
-  </div>
+  </header>
 
-</main>
+  <main>
+    <div class="album py-5 bg-light">
+      <div class="container">
 
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-  </div>
-</footer>
+        <div id="petlist" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        </div>
+      </div>
+    </div>
 
-	<script src="assets/data/data.js"></script>
-	
-    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  </main>
 
-    <script src="assets/js/getAllURLParams.js"></script>
-	<script>
-	for(let i=0;i<json_file.pets.length;i++){
-		document.body.innerHTML+='<h1>'+'</h1>';
-		console.log(json_file.pets[i].age);
-		petlist.innerHTML+=`
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/getAllURLParams.js"></script>
+  <script>
+
+    fetch('assets/data/data.json')
+      .then((response) => response.json())
+      .then((data) => {
+        viewCard(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+
+    function viewCard(pets) {
+      for (let i = 0; i < pets.length; i++) {
+        document.body.innerHTML += '<h1>' + '</h1>';
+        console.log(pets[i].age);
+        petlist.innerHTML += `
 		
         <div class="col">
           <div class="card shadow-sm">
-            <img src="${json_file.pets[i].pic1}" class="img-fluid" />
+            <img src='${pets[i].pic1}' height='225' alt:'Pic1 of ${pets[i].name}'>
 
             <div class="card-body">
-              <p class="card-text">${json_file.pets[i].name}</p>
-			  <p class="card-text">${json_file.pets[i].spayNeuter}</p>
-			  <p class="card-text">${json_file.pets[i].gender}</p>
-			  <p class="card-text">${json_file.pets[i].age}</p>
-			  <p class="card-text">${json_file.pets[i].animalID}</p>
-			  <p class="card-text">${json_file.pets[i].vaccinationStatus}</p>
-			  <p class="card-text">${json_file.pets[i].location}</p>
-			  <p class="card-text">${json_file.pets[i].availableForAdoption}</p>
-			  <p class="card-text">${json_file.pets[i].additionalDetails}</p>
+              <p class="card-text">${pets[i].name}</p>
+			  <p class="card-text">${pets[i].spayNeuter}</p>
+			  <p class="card-text">${pets[i].gender}</p>
+			  <p class="card-text">${pets[i].age}</p>
+			  <p class="card-text">${pets[i].animalID}</p>
+			  <p class="card-text">${pets[i].vaccinationStatus}</p>
+			  <p class="card-text">${pets[i].location}</p>
+			  <p class="card-text">${pets[i].availableForAdoption}</p>
+			  <p class="card-text">${pets[i].additionalDetails}</p>
 
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href="detail.html?index=i" class="btn btn-sm btn-outline-secondary">View</a>
                   
                 </div>
-                <small class="text-muted">${json_file.pets[i].breed}</small>
+                <small class="text-muted">${pets[i].breed}</small>
               </div>
             </div>
           </div>
         </div>
 		`}
-	
-	
-	console.log(json_file);
-	console.log(getAllUrlParams().page)
-	</script>
-      
-  </body>
+
+    }
+
+
+    console.log(getAllUrlParams().page)
+  </script>
+
+</body>
+
 </html>
