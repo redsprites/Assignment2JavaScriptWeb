@@ -30,6 +30,13 @@
         font-size: 3.5rem;
       }
     }
+
+    #btns {
+      display: flex;
+      justify-content: center;
+      gap: 0 10rem;
+      padding-bottom: 30px;
+    }
   </style>
 
 
@@ -49,8 +56,8 @@
 
   <main>
     <div class="album py-5 bg-light">
-      <div class="container">
-
+      <div class="container" s>
+        <div id="btns"></div>
         <div id="petlist" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         </div>
       </div>
@@ -70,10 +77,15 @@
 
   <script src="assets/js/getAllURLParams.js"></script>
   <script>
-
     fetch('assets/data/data.json')
       .then((response) => response.json())
       .then((data) => {
+        if (getAllUrlParams().page >= (data.length / 6) || getAllUrlParams().page < 0) {
+          document.body.innerHTML = `
+            <h1 style="color: #555; font-size: 50px; margin-top: 50px; text-align: center; font-family: Arial, sans-serif">Error 404: Page not found</h1>
+            <p style = "font-size: 20px; color: #888; margin-bottom: 50px; text-align: center; font-family: Arial, sans-serif">Sorry, the page you're looking for doesn't exist.</p>`;
+        }
+
         viewCard(data);
       })
       .catch(error => {
@@ -81,29 +93,25 @@
       });
 
     function viewCard(pets) {
-      for (let i = 0; i < pets.length; i++) {
-        document.body.innerHTML += '<h1>' + '</h1>';
-        console.log(pets[i].age);
+      btns.innerHTML += `
+        <a href="index.html?page=${(getAllUrlParams().page - 1) < 0 ? ((pets.length / 6) - 1) : (getAllUrlParams().page - 1)}" role="button" class="btn btn-outline-secondary">Previous</a>
+        <a href="index.html?page=${(parseInt(getAllUrlParams().page) + 1) >= (pets.length / 6) ? 0 : (parseInt(getAllUrlParams().page) + 1)}" role="button" class="btn btn-outline-secondary">Next</a>`;
+
+      for (let i = getAllUrlParams().page * 6; i < (getAllUrlParams().page * 6) + 6; i++) {
         petlist.innerHTML += `
 		
         <div class="col">
           <div class="card shadow-sm">
-            <img src='${pets[i].pic1}' height='225' alt:'Pic1 of ${pets[i].name}'>
+            <img src='${pets[i].pic1}' height='300' alt:'Pic1 of ${pets[i].name}'>
 
             <div class="card-body">
               <p class="card-text">${pets[i].name}</p>
-			  <p class="card-text">${pets[i].spayNeuter}</p>
 			  <p class="card-text">${pets[i].gender}</p>
 			  <p class="card-text">${pets[i].age}</p>
-			  <p class="card-text">${pets[i].animalID}</p>
-			  <p class="card-text">${pets[i].vaccinationStatus}</p>
-			  <p class="card-text">${pets[i].location}</p>
-			  <p class="card-text">${pets[i].availableForAdoption}</p>
-			  <p class="card-text">${pets[i].additionalDetails}</p>
 
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="detail.html?index=i" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a href="detail.html?pet=${i + 1}" class="btn btn-sm btn-outline-secondary">View</a>
                   
                 </div>
                 <small class="text-muted">${pets[i].breed}</small>
@@ -112,11 +120,7 @@
           </div>
         </div>
 		`}
-
     }
-
-
-    console.log(getAllUrlParams().page)
   </script>
 
 </body>
