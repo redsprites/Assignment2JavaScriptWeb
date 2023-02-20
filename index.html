@@ -77,10 +77,15 @@
 
   <script src="assets/js/getAllURLParams.js"></script>
   <script>
+    index = getAllUrlParams().page;
+    if (index == null) {
+      index = 0;
+    }
+
     fetch('assets/data/data.json')
       .then((response) => response.json())
       .then((data) => {
-        if (getAllUrlParams().page >= (data.length / 6) || getAllUrlParams().page < 0) {
+        if (index >= (data.length / 6) || index < 0 || index == null) {
           document.body.innerHTML = `
             <h1 style="color: #555; font-size: 50px; margin-top: 50px; text-align: center; font-family: Arial, sans-serif">Error 404: Page not found</h1>
             <p style = "font-size: 20px; color: #888; margin-bottom: 50px; text-align: center; font-family: Arial, sans-serif">Sorry, the page you're looking for doesn't exist.</p>`;
@@ -94,10 +99,10 @@
 
     function viewCard(pets) {
       btns.innerHTML += `
-        <a href="index.html?page=${(getAllUrlParams().page - 1) < 0 ? ((pets.length / 6) - 1) : (getAllUrlParams().page - 1)}" role="button" class="btn btn-outline-secondary">Previous</a>
-        <a href="index.html?page=${(parseInt(getAllUrlParams().page) + 1) >= (pets.length / 6) ? 0 : (parseInt(getAllUrlParams().page) + 1)}" role="button" class="btn btn-outline-secondary">Next</a>`;
+        <a href="index.html?page=${(index - 1) < 0 ? ((pets.length / 6) - 1) : (index - 1)}" role="button" class="btn btn-outline-secondary">Previous</a>
+        <a href="index.html?page=${(parseInt(index) + 1) >= (pets.length / 6) ? 0 : (parseInt(index) + 1)}" role="button" class="btn btn-outline-secondary">Next</a>`;
 
-      for (let i = getAllUrlParams().page * 6; i < (getAllUrlParams().page * 6) + 6; i++) {
+      for (let i = index * 6; i < (index * 6) + 6; i++) {
         petlist.innerHTML += `
 		
         <div class="col">
